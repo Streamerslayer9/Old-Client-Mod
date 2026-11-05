@@ -1,0 +1,70 @@
+{
+	"folders": [
+		{
+			"name": "gulp",
+			"path": "."
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic",
+		"java.import.gradle.enabled": true,
+		"java.configuration.runtimes": [
+			{
+				"name": "JavaSE-17",
+				"path": "${env:JAVA_HOME}",
+				"default": true
+			}
+		],
+		"java.compile.nullAnalysis.mode": "disabled",
+		"files.encoding": "utf8",
+		"files.exclude": {
+			"**/.gradle": true,
+			"**/build": true,
+			"**/run": true
+		},
+		"[java]": {
+			"editor.tabSize": 3,
+			"editor.insertSpaces": true
+		},
+		"[json]": {
+			"editor.tabSize": 2
+		}
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Build mod jar",
+				"type": "shell",
+				"command": "gradle build --no-daemon",
+				"group": { "kind": "build", "isDefault": true },
+				"problemMatcher": ["$gradle"]
+			},
+			{
+				"label": "Run client",
+				"type": "shell",
+				"command": "gradle runClient --no-daemon",
+				"problemMatcher": []
+			},
+			{
+				"label": "Run server",
+				"type": "shell",
+				"command": "gradle runServer --no-daemon",
+				"problemMatcher": []
+			},
+			{
+				"label": "Clean",
+				"type": "shell",
+				"command": "gradle clean --no-daemon",
+				"problemMatcher": []
+			}
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"vscjava.vscode-java-pack",
+			"vscjava.vscode-gradle",
+			"tamasfe.even-better-toml"
+		]
+	}
+}
